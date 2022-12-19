@@ -14,4 +14,8 @@ export class LoginRegisterService {
   loginUser(user: LoginRegister): Observable<unknown> {
     return this.httpClient.post<unknown>(this.url + 'login', user);
   }
+
+  registerUser(user: LoginRegister): Observable<unknown> {
+    return this.httpClient.post<unknown>(this.url + 'register', user);
+  }
 }
