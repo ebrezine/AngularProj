@@ -14,6 +14,7 @@ export class LoginRegisterComponent {
   loginPassword = '';
   registerUsername = '';
   registerPassword = '';
+  registerIsWorker = false;
 
   loginResult: string = '';
   registerResult: string = '';
@@ -66,7 +67,8 @@ export class LoginRegisterComponent {
 
     let user: LoginRegister = new LoginRegister(
       this.registerUsername,
-      this.registerPassword
+      this.registerPassword,
+      this.registerIsWorker
     );
 
     this.loginRegisterService.registerUser(user).subscribe({

@@ -20,5 +20,11 @@
   id="register-password"
   [(ngModel)]="registerPassword"
 />
+<input
+  type="checkbox"
+  name="isWorker"
+  id="isWorker"
+  [(ngModel)]="registerIsWorker"
+/>
 <button (click)="register()">Register User</button>
 <h3 *ngIf="registerResult">{{ registerResult }}</h3>
