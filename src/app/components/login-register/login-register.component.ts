@@ -19,6 +19,7 @@ export class LoginRegisterComponent {
   loginResult: string = '';
   registerResult: string = '';
 
+  // TODO - reset form values after success or fail
   login() {
     if (!this.loginUsername && !this.loginPassword) {
       this.loginResult = 'Please enter your username and password';
@@ -51,6 +52,7 @@ export class LoginRegisterComponent {
     });
   }
 
+  // TODO - reset form values after success or fail
   register() {
     if (!this.registerUsername && !this.registerPassword) {
       this.registerResult = 'Please enter your username and password';
