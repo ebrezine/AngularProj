@@ -1,5 +1,24 @@
 <h2>Login</h2>
-<input type="text" [(ngModel)]="username" />
-<input type="password" name="password" id="password" [(ngModel)]="password" />
+<input type="text" [(ngModel)]="loginUsername" />
+<input
+  type="password"
+  name="password"
+  id="login-password"
+  [(ngModel)]="loginPassword"
+/>
 <button (click)="login()">Login User</button>
-<h3 *ngIf="loginRegisterResult">{{ loginRegisterResult }}</h3>
+<h3 *ngIf="loginResult">{{ loginResult }}</h3>
+
+<br />
+<br />
+
+<h2>Register</h2>
+<input type="text" [(ngModel)]="registerUsername" />
+<input
+  type="password"
+  name="password"
+  id="register-password"
+  [(ngModel)]="registerPassword"
+/>
+<button (click)="register()">Register User</button>
+<h3 *ngIf="registerResult">{{ registerResult }}</h3>

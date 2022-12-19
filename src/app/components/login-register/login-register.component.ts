@@ -10,33 +10,74 @@ import { LoginRegisterService } from 'src/app/services/login-register.service';
 export class LoginRegisterComponent {
   constructor(private loginRegisterService: LoginRegisterService) {}
 
-  username = '';
-  password = '';
+  loginUsername = '';
+  loginPassword = '';
+  registerUsername = '';
+  registerPassword = '';
 
-  loginRegisterResult: string = '';
+  loginResult: string = '';
+  registerResult: string = '';
 
   login() {
-    if (!this.username && !this.password) {
-      this.loginRegisterResult = 'Please enter your username and password';
+    if (!this.loginUsername && !this.loginPassword) {
+      this.loginResult = 'Please enter your username and password';
       return;
     }
-    if (!this.username) {
-      this.loginRegisterResult = 'Please enter your username';
+    if (!this.loginUsername) {
+      this.loginResult = 'Please enter your username';
       return;
     }
-    if (!this.password) {
-      this.loginRegisterResult = 'Please enter you password';
+    if (!this.loginPassword) {
+      this.loginResult = 'Please enter you password';
       return;
     }
 
-    let user: LoginRegister = new LoginRegister(this.username, this.password);
+    let user: LoginRegister = new LoginRegister(
+      this.loginUsername,
+      this.loginPassword
+    );
 
     this.loginRegisterService.loginUser(user).subscribe({
       next: () => {
-        this.loginRegisterResult = 'You successfully logged in';
+        this.loginResult = 'You successfully logged in';
+        // TODO - redirect user
+        // TODO - create user in session
       },
       error: (err) => {
-        this.loginRegisterResult = err.error;
+        this.loginResult = err.error;
+        console.log(err);
+      },
+    });
+  }
+
+  register() {
+    if (!this.registerUsername && !this.registerPassword) {
+      this.registerResult = 'Please enter your username and password';
+      return;
+    }
+    if (!this.registerUsername) {
+      this.registerResult = 'Please enter your username';
+      return;
+    }
+    if (!this.registerPassword) {
+      this.registerResult = 'Please enter you password';
+      return;
+    }
+
+    let user: LoginRegister = new LoginRegister(
+      this.registerUsername,
+      this.registerPassword
+    );
+
+    this.loginRegisterService.registerUser(user).subscribe({
+      next: () => {
+        this.registerResult = 'You successfully registered';
+        // TODO - login user
+        // TODO - redirect user
+        // TODO - create user in session
+      },
+      error: (err) => {
+        this.registerResult = 'There was an error registering';
         console.log(err);
       },
     });
