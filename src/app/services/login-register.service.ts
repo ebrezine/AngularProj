@@ -21,4 +21,8 @@ export class LoginRegisterService {
   registerUser(user: LoginRegister): Observable<unknown> {
     return this.httpClient.post<unknown>(this.url + 'register', user);
   }
+
+  logoutUser(): Observable<unknown> {
+    return this.httpClient.get<unknown>(this.url + 'logout');
+  }
 }

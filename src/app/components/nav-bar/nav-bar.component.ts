@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LoginRegisterService } from 'src/app/services/login-register.service';
 
 @Component({
@@ -6,18 +7,32 @@ import { LoginRegisterService } from 'src/app/services/login-register.service';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy {
   constructor(private loginService: LoginRegisterService) {}
 
   loggedIn: boolean = false;
+  subscription: Subscription = new Subscription();
+
+  logout() {
+    this.loginService.isLoggedIn.next(false);
+    this.loginService.logoutUser().subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log('err', err);
+      },
+    });
+    // TODO - logout service
+  }
 
   ngOnInit() {
-    this.loginService.isLoggedIn$.subscribe(
+    this.subscription = this.loginService.isLoggedIn$.subscribe(
       (isLoggedIn) => (this.loggedIn = isLoggedIn)
     );
   }
 
-  logout() {
-    this.loginService.isLoggedIn.next(false);
+  ngOnDestroy() {
+    this.subscription && this.subscription.unsubscribe();
   }
 }

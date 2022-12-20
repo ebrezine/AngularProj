@@ -54,11 +54,13 @@ export class LoginRegisterComponent implements OnInit {
     );
 
     this.loginRegisterService.loginUser(user).subscribe({
-      next: () => {
+      next: (usr) => {
         this.loginUsername = '';
         this.loginPassword = '';
         this.loginRegisterService.isLoggedIn.next(true);
         this.loginResult = 'You successfully logged in';
+        console.log(usr);
+
         // TODO - redirect user
         // TODO - create user in session
       },
