@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { LoginRegister } from 'src/app/models/login-register';
 import { LoginRegisterService } from 'src/app/services/login-register.service';
 
@@ -7,8 +8,11 @@ import { LoginRegisterService } from 'src/app/services/login-register.service';
   templateUrl: './login-register.component.html',
   styleUrls: ['./login-register.component.css'],
 })
-export class LoginRegisterComponent {
-  constructor(private loginRegisterService: LoginRegisterService) {}
+export class LoginRegisterComponent implements OnInit {
+  constructor(
+    private loginRegisterService: LoginRegisterService,
+    private route: ActivatedRoute
+  ) {}
 
   loginUsername = '';
   loginPassword = '';
@@ -18,6 +22,16 @@ export class LoginRegisterComponent {
 
   loginResult: string = '';
   registerResult: string = '';
+
+  name: string = '';
+  activeClass: string = 'tab-pane fade show active';
+  inactiveClass: string = 'tab-pane fade';
+
+  ngOnInit(): void {
+    this.route.url.subscribe((params) => {
+      this.name = params[0].path;
+    });
+  }
 
   // TODO - reset form values after success or fail
   login() {
