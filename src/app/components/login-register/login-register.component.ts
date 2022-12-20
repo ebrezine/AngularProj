@@ -33,7 +33,6 @@ export class LoginRegisterComponent implements OnInit {
     });
   }
 
-  // TODO - reset form values after success or fail
   login() {
     if (!this.loginUsername && !this.loginPassword) {
       this.loginResult = 'Please enter your username and password';
@@ -60,7 +59,6 @@ export class LoginRegisterComponent implements OnInit {
         this.loginRegisterService.isLoggedIn.next(true);
         this.loginResult = 'You successfully logged in';
         console.log(usr);
-
         // TODO - redirect user
         // TODO - create user in session
       },
@@ -71,7 +69,6 @@ export class LoginRegisterComponent implements OnInit {
     });
   }
 
-  // TODO - reset form values after success or fail
   register() {
     if (!this.registerUsername && !this.registerPassword) {
       this.registerResult = 'Please enter your username and password';
