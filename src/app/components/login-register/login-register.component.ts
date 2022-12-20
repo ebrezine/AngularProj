@@ -55,6 +55,9 @@ export class LoginRegisterComponent implements OnInit {
 
     this.loginRegisterService.loginUser(user).subscribe({
       next: () => {
+        this.loginUsername = '';
+        this.loginPassword = '';
+        this.loginRegisterService.isLoggedIn.next(true);
         this.loginResult = 'You successfully logged in';
         // TODO - redirect user
         // TODO - create user in session
@@ -89,6 +92,10 @@ export class LoginRegisterComponent implements OnInit {
 
     this.loginRegisterService.registerUser(user).subscribe({
       next: () => {
+        this.registerUsername = '';
+        this.registerPassword = '';
+        this.registerIsWorker = false;
+        this.loginRegisterService.isLoggedIn.next(true);
         this.registerResult = 'You successfully registered';
         // TODO - login user
         // TODO - redirect user
