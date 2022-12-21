@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LoginRegisterService } from 'src/app/services/login-register.service';
@@ -8,22 +9,25 @@ import { LoginRegisterService } from 'src/app/services/login-register.service';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit, OnDestroy {
-  constructor(private loginService: LoginRegisterService) {}
+  constructor(
+    private loginService: LoginRegisterService,
+    private router: Router
+  ) {}
 
   loggedIn: boolean = false;
   subscription: Subscription = new Subscription();
 
+  // TODO - destroy session
   logout() {
     this.loginService.isLoggedIn.next(false);
     this.loginService.logoutUser().subscribe({
-      next: (data) => {
-        console.log(data);
+      next: () => {
+        this.router.navigate(['/']);
       },
       error: (err) => {
         console.log('err', err);
       },
     });
-    // TODO - logout service
   }
 
   ngOnInit() {
