@@ -14,15 +14,25 @@ export class LoginRegisterService {
 
   constructor(private httpClient: HttpClient) {}
 
+  options = { withCredentials: true };
+
   loginUser(user: LoginRegister): Observable<unknown> {
-    return this.httpClient.post<unknown>(this.url + 'login', user);
+    return this.httpClient.post<unknown>(
+      this.url + 'login',
+      user,
+      this.options
+    );
   }
 
   registerUser(user: LoginRegister): Observable<unknown> {
-    return this.httpClient.post<unknown>(this.url + 'register', user);
+    return this.httpClient.post<unknown>(
+      this.url + 'register',
+      user,
+      this.options
+    );
   }
 
   logoutUser(): Observable<unknown> {
-    return this.httpClient.get<unknown>(this.url + 'logout');
+    return this.httpClient.get<unknown>(this.url + 'logout', this.options);
   }
 }
