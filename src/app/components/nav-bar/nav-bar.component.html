@@ -24,7 +24,7 @@
         >Register</a
       >
       <!-- TODO - add routerLinkActive & routerLink -->
-      <a class="btn" *ngIf="loggedIn">User Profile</a>
+      <a class="btn" routerLinkActive="active" routerLink="/userprofile" *ngIf="loggedIn">User Profile</a>
       <!-- TODO - make this a function instead of a route -->
       <a class="btn" *ngIf="loggedIn" (click)="logout()">Logout</a>
       <!-- TODO - add toggle to change light/dark mode -->
