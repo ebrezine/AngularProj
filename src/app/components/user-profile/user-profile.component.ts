@@ -10,12 +10,12 @@ import { UserProfileService } from 'src/app/services/user-profile.service';
 })
 export class UserProfileComponent implements OnInit {
   constructor(
-    private changePasswordService: UserProfileService,
+    private userProfileService: UserProfileService,
     private route: ActivatedRoute
 
   ){}
 
-  changePasswordUsername = '';
+  changePasswordUsername = sessionStorage.getItem("loggedInUser");
   changePasswordPassword = '';
   changePasswordNewPassword = '';
 
@@ -46,6 +46,22 @@ changePassword() {
   //call your change password service now
   // you probable need the username to be saved in session
     //before your backend can run
+
+    this.userProfileService.changePassword(passwords).subscribe({
+      next: (pwCh) => {
+          this.changePasswordPassword = '';
+          this.changePasswordNewPassword = '';
+          this.changePasswordResult = 'pw changed successfully';
+      },
+      error: (err) => {
+        this.changePasswordResult = err.error;
+        console.log(err);
+      },
+
+
+    });
+
+
 
 
 }

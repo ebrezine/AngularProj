@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LoginRegisterService } from 'src/app/services/login-register.service';
+import { LoginRegisterComponent } from '../login-register/login-register.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,6 +17,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
 
   loggedIn: boolean = false;
   subscription: Subscription = new Subscription();
+  logoutResult: string = 'test string';
 
   // TODO - destroy session
   logout() {
@@ -23,9 +25,11 @@ export class NavBarComponent implements OnInit, OnDestroy {
     this.loginService.logoutUser().subscribe({
       next: () => {
         this.router.navigate(['/']);
+        this.logoutResult = "Log out successful"
       },
       error: (err) => {
         console.log('err', err);
+        
       },
     });
   }

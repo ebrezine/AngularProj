@@ -9,6 +9,7 @@
       <a class="btn">Change Roles</a>
     </div>
     <div class="ms-auto p-2">
+      <span *ngIf="logoutResult">{{ logoutResult+"   " }}</span>
       <a
         class="btn"
         routerLinkActive="active"

@@ -12,8 +12,8 @@ export class UserProfileService {
 
   constructor(private httpClient: HttpClient) {}
 
-  changePassword(passwords: ChangePassword): Observable<unknown> {
-    return this.httpClient.post<unknown>(this.url + 'userprofile/resetpassword', passwords);
+  changePassword(passwords: ChangePassword): Observable<Object> {
+    return this.httpClient.post<Object>(this.url + 'userprofile/resetpassword', passwords);  
   }
 
 }

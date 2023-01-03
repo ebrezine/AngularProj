@@ -43,7 +43,7 @@ export class LoginRegisterComponent implements OnInit {
       return;
     }
     if (!this.loginPassword) {
-      this.loginResult = 'Please enter you password';
+      this.loginResult = 'Please enter your password';
       return;
     }
 
@@ -58,7 +58,12 @@ export class LoginRegisterComponent implements OnInit {
         this.loginPassword = '';
         this.loginRegisterService.isLoggedIn.next(true);
         this.loginResult = 'You successfully logged in';
-        console.log(usr);
+        console.log(usr.username);
+        console.log(usr.isWorker);
+        sessionStorage.setItem("loggedInUser", usr.username);
+        sessionStorage.setItem("isWorker", String(usr.isWorker));
+
+
         // TODO - redirect user
         // TODO - create user in session
       },

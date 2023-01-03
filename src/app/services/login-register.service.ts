@@ -14,8 +14,13 @@ export class LoginRegisterService {
 
   constructor(private httpClient: HttpClient) {}
 
-  loginUser(user: LoginRegister): Observable<unknown> {
-    return this.httpClient.post<unknown>(this.url + 'login', user);
+  loginUser(user: LoginRegister): Observable<LoginRegister> {
+    return this.httpClient.post<LoginRegister>(this.url + 'login', user);
+    //.pipe(
+      //  tap(response => console.log(response)),
+        //map(response => response.body)
+    //);
+  
   }
 
   registerUser(user: LoginRegister): Observable<unknown> {
