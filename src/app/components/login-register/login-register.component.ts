@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { LoginRegister } from 'src/app/models/login-register';
 import { LoginRegisterService } from 'src/app/services/login-register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-register',
@@ -11,7 +12,8 @@ import { LoginRegisterService } from 'src/app/services/login-register.service';
 export class LoginRegisterComponent implements OnInit {
   constructor(
     private loginRegisterService: LoginRegisterService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   loginUsername = '';
@@ -32,7 +34,7 @@ export class LoginRegisterComponent implements OnInit {
       this.name = params[0].path;
     });
   }
-
+ 
   login() {
     if (!this.loginUsername && !this.loginPassword) {
       this.loginResult = 'Please enter your username and password';
@@ -68,9 +70,10 @@ export class LoginRegisterComponent implements OnInit {
         console.log(sessionStorage.getItem("loggedInUser"));
         console.log(sessionStorage.getItem("isWorker"));
 
-
-        // TODO - redirect user
-        // TODO - create user in session
+        setTimeout(()=>{
+          this.loginResult = 'redirecting...';
+          this.claimsRedirect();
+          }, 1750);
       },
       error: (err) => {
         this.loginResult = err.error;
@@ -106,9 +109,12 @@ export class LoginRegisterComponent implements OnInit {
         this.registerIsWorker = false;
         this.loginRegisterService.isLoggedIn.next(true);
         this.registerResult = 'You successfully registered';
-        // TODO - login user
-        // TODO - redirect user
-        // TODO - create user in session
+
+        setTimeout(()=>{
+          this.registerResult = 'redirecting to login page';
+          this.loginRedirect();
+          }, 1750);
+       
       },
       error: (err) => {
         this.registerResult = 'There was an error registering';
@@ -116,4 +122,18 @@ export class LoginRegisterComponent implements OnInit {
       },
     });
   }
+
+  claimsRedirect() {
+    setTimeout(()=>{
+      this.router.navigate(['claims']);
+    }, 1750);
+  }
+
+  loginRedirect() {
+    setTimeout(()=>{
+      this.router.navigate(['login']);
+    }, 1750);
+  }
+
 }
+

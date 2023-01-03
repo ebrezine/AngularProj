@@ -16,8 +16,6 @@ const routes: Routes = [
     path: 'userprofile',
     component: UserProfileComponent
   }
-  
-  // TODO - reset password route? or include with user profile
   // TODO - view claims route
   // TODO - approve/deny claims route
   // TODO - change patient/employee roles route
