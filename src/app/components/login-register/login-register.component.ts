@@ -107,7 +107,7 @@ export class LoginRegisterComponent implements OnInit {
         this.registerUsername = '';
         this.registerPassword = '';
         this.registerIsWorker = false;
-        this.loginRegisterService.isLoggedIn.next(true);
+        //this.loginRegisterService.isLoggedIn.next(true);
         this.registerResult = 'You successfully registered';
 
         setTimeout(()=>{

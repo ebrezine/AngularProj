@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { elementAt, Subscription } from 'rxjs';
 import { LoginRegisterService } from 'src/app/services/login-register.service';
 import { LoginRegisterComponent } from '../login-register/login-register.component';
 
@@ -18,6 +18,9 @@ export class NavBarComponent implements OnInit, OnDestroy {
   loggedIn: boolean = false;
   subscription: Subscription = new Subscription();
   logoutResult: string = '';
+
+ 
+  
 
   // TODO - destroy session
   logout() {
@@ -48,6 +51,34 @@ export class NavBarComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription && this.subscription.unsubscribe();
   }
+
+  isDarkMode: boolean = false;
+  darkModeToggle(){
+    
+    if(this.isDarkMode) {
+      
+    let element = document.getElementById("body2");
+    this.isDarkMode = false;
+    for(let single in element){
+      element.className = "light-mode";
+    }
+    console.log(this.isDarkMode);
+    
+    
+  }else{
+  
+    let element = document.getElementById("body2");
+    this.isDarkMode = true;
+    for(let single in element){
+      element.className = "dark-mode";
+    }
+    
+    console.log(this.isDarkMode);
+  }
+
+}
+
+
 
   loginRedirect() {
     setTimeout(()=>{

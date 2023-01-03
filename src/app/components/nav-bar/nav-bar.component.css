@@ -1,9 +1,19 @@
-.navbar {
+body {
   background-color: #f26925;
 }
 .btn {
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 .btn:hover {
   color: #474c55;
+} 
+
+.dark-mode {
+  background-color: black;
 }
+
+.light-mode {
+  background-color: #f26925;
+}
+
+
