@@ -20,8 +20,6 @@ const routes: Routes = [
     path:'claims'
     component: ClaimsComponent
   }
-  
-  // TODO - reset password route? or include with user profile
   // TODO - view claims route
   // TODO - approve/deny claims route
   // TODO - change patient/employee roles route

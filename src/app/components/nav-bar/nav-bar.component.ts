@@ -17,15 +17,20 @@ export class NavBarComponent implements OnInit, OnDestroy {
 
   loggedIn: boolean = false;
   subscription: Subscription = new Subscription();
-  logoutResult: string = 'test string';
+  logoutResult: string = '';
 
   // TODO - destroy session
   logout() {
     this.loginService.isLoggedIn.next(false);
     this.loginService.logoutUser().subscribe({
       next: () => {
-        this.router.navigate(['/']);
-        this.logoutResult = "Log out successful"
+        this.logoutResult = "Log out successful!";
+
+        setTimeout(()=>{
+          this.logoutResult = "Log out successful!";
+        }, 1750);
+        
+        this.loginRedirect();
       },
       error: (err) => {
         console.log('err', err);
@@ -42,5 +47,12 @@ export class NavBarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription && this.subscription.unsubscribe();
+  }
+
+  loginRedirect() {
+    setTimeout(()=>{
+      this.logoutResult = '';
+      this.router.navigate(['login']);
+    }, 1750);
   }
 }
