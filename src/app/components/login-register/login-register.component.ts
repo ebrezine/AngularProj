@@ -58,10 +58,15 @@ export class LoginRegisterComponent implements OnInit {
         this.loginPassword = '';
         this.loginRegisterService.isLoggedIn.next(true);
         this.loginResult = 'You successfully logged in';
+        console.log(usr);
         console.log(usr.username);
-        console.log(usr.isWorker);
+        console.log(usr.worker);
+        console.log(String(usr.worker));
         sessionStorage.setItem("loggedInUser", usr.username);
-        sessionStorage.setItem("isWorker", String(usr.isWorker));
+        sessionStorage.setItem("isWorker", String(usr.worker));
+
+        console.log(sessionStorage.getItem("loggedInUser"));
+        console.log(sessionStorage.getItem("isWorker"));
 
 
         // TODO - redirect user
