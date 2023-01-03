@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-
+import {ClaimsComponent} from './components/claims/claims.component';
 const routes: Routes = [
   {
     path: 'login',
@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'userprofile',
     component: UserProfileComponent
+  },
+  {
+    path:'claims'
+    component: ClaimsComponent
   }
   
   // TODO - reset password route? or include with user profile
