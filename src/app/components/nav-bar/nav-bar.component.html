@@ -1,8 +1,10 @@
 
 
-  <body>
+  
+
+
     
-<div class="body2" id="body2">
+
 
 <nav class="navbar" id="navbar">
   <div class="container-fluid">
@@ -37,13 +39,12 @@
       <!-- TODO - make this a function instead of a route -->
       <a class="btn" *ngIf="loggedIn" (click)="logout()">Logout</a>
       <!-- TODO - add toggle to change light/dark mode -->
-      <a class="btn" (click)="darkModeToggle()">Toggle Dark Mode</a>
+      <a class="btn" (click)="darkModeToggle()">{{darkModeService.isDarkMode|darkModeToggle}}</a>
     </div>
   </div>
 </nav>
 
-</div>
 
-</body>
+
 
 
