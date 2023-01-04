@@ -1,8 +1,9 @@
-import { Router } from '@angular/router';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { elementAt, Subscription } from 'rxjs';
 import { LoginRegisterService } from 'src/app/services/login-register.service';
 import { LoginRegisterComponent } from '../login-register/login-register.component';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,6 +13,8 @@ import { LoginRegisterComponent } from '../login-register/login-register.compone
 export class NavBarComponent implements OnInit, OnDestroy {
   constructor(
     private loginService: LoginRegisterService,
+    public darkModeService: DarkModeService,
+    //private loginRegisterComponent: LoginRegisterComponent,
     private router: Router
   ) {}
 
@@ -27,6 +30,8 @@ export class NavBarComponent implements OnInit, OnDestroy {
     this.loginService.isLoggedIn.next(false);
     this.loginService.logoutUser().subscribe({
       next: () => {
+        sessionStorage.clear()
+        console.log("session storage empty?: "+String(sessionStorage.length == 0)+", the session and session object parameters have been cleared.");
         this.logoutResult = "Log out successful!";
 
         setTimeout(()=>{
@@ -51,32 +56,15 @@ export class NavBarComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription && this.subscription.unsubscribe();
   }
-
-  isDarkMode: boolean = false;
-  darkModeToggle(){
-    
-    if(this.isDarkMode) {
-      
-    let element = document.getElementById("body2");
-    this.isDarkMode = false;
-    for(let single in element){
-      element.className = "light-mode";
-    }
-    console.log(this.isDarkMode);
-    
-    
-  }else{
   
-    let element = document.getElementById("body2");
-    this.isDarkMode = true;
-    for(let single in element){
-      element.className = "dark-mode";
-    }
-    
-    console.log(this.isDarkMode);
-  }
 
-}
+  darkModeToggle() {
+    this.darkModeService.darkModeToggle();
+  
+    //this.darkModeService.sendClickEvent();
+    
+    
+  }
 
 
 

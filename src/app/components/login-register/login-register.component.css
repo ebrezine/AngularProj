@@ -8,4 +8,14 @@ body {
   .btn:hover {
     color: #474c55;
   } 
+
+
+  .dark-mode {
+  background-color: black;
+}
+
+.light-mode {
+  background-color: #f26925;
+}
+
   
