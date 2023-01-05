@@ -11,9 +11,11 @@ import { CustomInterceptor } from './intereceptors/custom.interceptor';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { DarkModeTogglePipe } from './pipes/dark-mode-toggle.pipe';
 import { FileClaimComponent } from './components/file-claim/file-claim.component';
+import { ViewClaimComponent } from './components/view-claim/view-claim.component';
+import { ProcessClaimComponent } from './components/process-claim/process-claim.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, LoginRegisterComponent, UserProfileComponent, DarkModeTogglePipe, FileClaimComponent],
+  declarations: [AppComponent, NavBarComponent, LoginRegisterComponent, UserProfileComponent, DarkModeTogglePipe, FileClaimComponent, ViewClaimComponent, ProcessClaimComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true },

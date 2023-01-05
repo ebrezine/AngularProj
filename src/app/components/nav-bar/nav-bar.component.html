@@ -10,9 +10,19 @@
   <div class="container-fluid">
     <div class="p-2">
       <!-- TODO - add routerLinkActive & routerLink -->
-      <a class="btn"> View Claims </a>
+      <a
+        class="btn"
+        routerLinkActive="active"
+        routerLink="/viewclaim"
+        *ngIf="loggedIn"
+        >View Claims</a>
       <!-- TODO - add routerLinkActive & routerLink -->
-      <a class="btn"> Approve/Deny Claims </a>
+      <a
+        class="btn"
+        routerLinkActive="active"
+        routerLink="/processclaim"
+        *ngIf="loggedIn"
+        >Process Claim</a>
       <!-- TODO - add routerLinkActive & routerLink -->
       <a class="btn">Change Roles</a>
       <!-- TODO - add routerLinkActive & routerLink -->
