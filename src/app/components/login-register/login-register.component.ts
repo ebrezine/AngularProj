@@ -69,6 +69,8 @@ export class LoginRegisterComponent implements OnInit {
         this.loginUsername = '';
         this.loginPassword = '';
         this.loginRegisterService.isLoggedIn.next(true);
+
+        
         
         this.loginResult = 'You successfully logged in';
         console.log(usr);
