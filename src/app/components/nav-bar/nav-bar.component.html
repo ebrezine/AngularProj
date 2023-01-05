@@ -1,4 +1,12 @@
-<nav class="navbar">
+
+
+  
+
+
+    
+
+
+<nav class="navbar" id="navbar">
   <div class="container-fluid">
     <div class="p-2">
       <!-- TODO - add routerLinkActive & routerLink -->
@@ -31,6 +39,12 @@
       <!-- TODO - make this a function instead of a route -->
       <a class="btn" *ngIf="loggedIn" (click)="logout()">Logout</a>
       <!-- TODO - add toggle to change light/dark mode -->
+      <a class="btn" (click)="darkModeToggle()">{{darkModeService.isDarkMode|darkModeToggle}}</a>
     </div>
   </div>
 </nav>
+
+
+
+
+

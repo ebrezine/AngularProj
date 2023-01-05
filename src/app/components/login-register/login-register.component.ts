@@ -3,6 +3,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { LoginRegister } from 'src/app/models/login-register';
 import { LoginRegisterService } from 'src/app/services/login-register.service';
 import { Router } from '@angular/router';
+import { DarkModeService } from 'src/app/services/dark-mode.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login-register',
@@ -10,11 +12,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-register.component.css'],
 })
 export class LoginRegisterComponent implements OnInit {
+  //clickEventsubscription:Subscription;
+  
+  
   constructor(
     private loginRegisterService: LoginRegisterService,
+    private darkModeService: DarkModeService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    // this.clickEventsubscription=this.darkModeService.getClickEvent().subscribe(()=>{
+    //   this.darkModeToggle();
+    // })
+  }
 
   loginUsername = '';
   loginPassword = '';
@@ -69,6 +79,7 @@ export class LoginRegisterComponent implements OnInit {
 
         console.log(sessionStorage.getItem("loggedInUser"));
         console.log(sessionStorage.getItem("isWorker"));
+        console.log("session storage length: "+sessionStorage.length +" object parameters have been stored in the session.");
 
         setTimeout(()=>{
           this.loginResult = 'redirecting...';
@@ -107,7 +118,7 @@ export class LoginRegisterComponent implements OnInit {
         this.registerUsername = '';
         this.registerPassword = '';
         this.registerIsWorker = false;
-        this.loginRegisterService.isLoggedIn.next(true);
+        //this.loginRegisterService.isLoggedIn.next(true);
         this.registerResult = 'You successfully registered';
 
         setTimeout(()=>{
@@ -122,10 +133,11 @@ export class LoginRegisterComponent implements OnInit {
       },
     });
   }
+  
 
   claimsRedirect() {
     setTimeout(()=>{
-      this.router.navigate(['claims']);
+      this.router.navigate(['userprofile']);
     }, 1750);
   }
 

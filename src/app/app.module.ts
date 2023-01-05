@@ -9,9 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomInterceptor } from './intereceptors/custom.interceptor';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { DarkModeTogglePipe } from './pipes/dark-mode-toggle.pipe';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, LoginRegisterComponent, UserProfileComponent],
+  declarations: [AppComponent, NavBarComponent, LoginRegisterComponent, UserProfileComponent, DarkModeTogglePipe],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true },
