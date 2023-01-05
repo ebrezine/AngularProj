@@ -38,7 +38,12 @@ export class UserProfileComponent implements OnInit {
 changeRole(){
   this.userProfileService.changeRole(this.pin).subscribe({
     next: (numCh) => {
-      this.changeRoleResult = 'Role changed successfully!';
+      if(this.pin == 1234){
+        this.changeRoleResult = 'Role changed successfully!';
+      }
+      else{
+        this.changeRoleResult = 'Role change failed - incorrect PIN.';
+      }
     },
     error: (err) => {
       this.changeRoleResult = err.error;
