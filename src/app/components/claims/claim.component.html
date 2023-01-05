@@ -1,0 +1,25 @@
+<div class="tab-content">
+    <div>
+        <form (ngSubmit)="createClaim()">
+            <div class="form-floating mb-3">
+                <input type="text" 
+                name="description" 
+                id="desc" 
+                [(ngModel)]="description" 
+                class="form-control" 
+                placeholder="Description"
+                />
+                <label for="description">Reason for Claim</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" 
+                name="amount" 
+                id="amt" 
+                [(ngModel)]="amount" 
+                class="form-control" 
+                />
+                <label for="description">Amount Requested</label>
+            </div>
+        </form>
+    </div>
+</div>
