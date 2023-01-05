@@ -15,6 +15,14 @@
       <a class="btn"> Approve/Deny Claims </a>
       <!-- TODO - add routerLinkActive & routerLink -->
       <a class="btn">Change Roles</a>
+      <!-- TODO - add routerLinkActive & routerLink -->
+      <a
+        class="btn"
+        routerLinkActive="active"
+        routerLink="/fileclaim"
+        *ngIf="loggedIn"
+        >File Claim</a>
+
     </div>
     <div class="ms-auto p-2">
       <a

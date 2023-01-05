@@ -15,7 +15,7 @@ export class UserProfileComponent implements OnInit {
 
   ){}
 
-  changePasswordUsername = sessionStorage.getItem("loggedInUser");
+  changePasswordUsername = sessionStorage.getItem("loggedInUser") + '';
   changePasswordPassword = '';
   changePasswordNewPassword = '';
 
