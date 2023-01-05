@@ -75,6 +75,28 @@
         <h3 *ngIf="changePasswordResult">{{ changePasswordResult }}</h3>
       </form>
     </div>
+
+    <div>
+      <form (ngSubmit) = "changeRole()">
+        <div class="form-floating mb-3">
+          <input
+            type="number"
+            name="pin"
+            id="pin"
+            [(ngModel)]="pin"
+            class="form-control"
+            placeholder="0000"
+          />
+          <label for="pin">PIN</label>
+        </div>
+  
+        <!-- Submit button -->
+        <button class="btn btn-primary mb-3">Change Role</button>
+  
+        <!-- Success/Error Message -->
+        <h3 *ngIf="changeRoleResult">{{ changeRoleResult }}</h3>
+      </form>
+    </div>
 </div>
 
 </div>
