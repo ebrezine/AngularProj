@@ -20,7 +20,7 @@ export class ProcessClaimComponent {
   //changePasswordUsername = sessionStorage.getItem("loggedInUser") + '';
   id = 0;
   status = '';
-
+    
   processClaimResult: string = '';
 
   name: string = '';

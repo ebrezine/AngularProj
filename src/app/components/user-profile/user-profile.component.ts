@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChangePassword } from 'src/app/models/change-password';
+import { LoginRegisterService } from 'src/app/services/login-register.service';
 import { UserProfileService } from 'src/app/services/user-profile.service';
 
 @Component({
@@ -11,7 +12,9 @@ import { UserProfileService } from 'src/app/services/user-profile.service';
 export class UserProfileComponent implements OnInit {
   constructor(
     private userProfileService: UserProfileService,
-    private route: ActivatedRoute
+    private loginService: LoginRegisterService,
+    private route: ActivatedRoute,
+    private router: Router
 
   ){}
 
@@ -64,6 +67,32 @@ changePassword() {
           this.changePasswordPassword = '';
           this.changePasswordNewPassword = '';
           this.changePasswordResult = 'pw changed successfully';
+
+          setTimeout(()=>{
+            this.changePasswordResult = 'redirecting...';
+            this.loginRedirect();
+            }, 1750);
+
+            this.loginService.isLoggedIn.next(false);
+    this.loginService.isAgent.next(false);
+    this.loginService.logoutUser().subscribe({
+      next: () => {
+        sessionStorage.clear()
+        console.log("session storage empty?: "+String(sessionStorage.length == 0)+", the session and session object parameters have been cleared.");
+        // this.logoutResult = "Log out successful!";
+
+        // setTimeout(()=>{
+        //   this.logoutResult = "Log out successful!";
+        // }, 1750);
+        
+        this.loginRedirect();
+      },
+      error: (err) => {
+        console.log('err', err);
+        
+      },
+    });
+
       },
       error: (err) => {
         this.changePasswordResult = err.error;
@@ -76,6 +105,13 @@ changePassword() {
 
 
 
+}
+
+
+loginRedirect() {
+  setTimeout(()=>{
+    this.router.navigate(['login']);
+  }, 1750);
 }
 
 

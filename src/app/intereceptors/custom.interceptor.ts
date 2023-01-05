@@ -16,7 +16,7 @@ export class CustomInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     request = request.clone({ withCredentials: true });
-
+    
     return next.handle(request);
   }
 }
