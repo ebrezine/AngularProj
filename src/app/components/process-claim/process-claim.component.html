@@ -1,0 +1,94 @@
+<body>
+  
+    <div id="divMain5">
+  
+  <!-- Pills navs -->
+  <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link"
+          id="tab-processclaim"
+          data-mdb-toggle="pill"
+          href="#pills-processclaim"
+          role="tab"
+          aria-controls="pills-processclaim"
+          routerLink="/processclaim"
+          routerLinkActive="active"
+          >Process Claim</a
+        >
+      </li>
+  </ul>
+  
+  <div class="tab-content">
+      <!-- Login Content -->
+      <div
+        [ngClass]="name == 'processclaim' ? activeClass : inactiveClass"
+        id="pills-processclaim"
+        role="tabpanel"
+        aria-labelledby="tab-processclaim"
+      >
+        <form (ngSubmit)="processClaim()">
+          <!-- Email input -->
+          <!-- <div class="form-floating mb-3">
+            <input
+              type="text"
+              name="username"
+              id="changePassword-username"
+              [(ngModel)]="changePasswordUsername"
+              class="form-control"
+              placeholder="Username"
+            />
+            <label for="changePassword-username">Username</label>
+          </div> -->
+    
+          <!-- Password input -->
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              name="claim_id"
+              id="processClaim-claim_id"
+              [(ngModel)]="id"
+              class="form-control"
+              placeholder="Claim ID number"
+            />
+            <label for="processClaim-claim_id">Claim ID Number:</label>
+          </div>
+  
+          <!-- New Password input -->
+          <div class="form-floating mb-3">
+            
+            <h5 class="Small">Status</h5><select name="degree" id="degree" [(ngModel)]="status">
+                <option selection>--Select Status--</option>
+
+                <option>Approve</option>
+                <option>Deny</option>
+        <!--<option>B.com Computers</option>
+        <option>B.A</option>-->
+    
+            </select>
+            
+            <!-- <input
+              type="password"
+              name="newPassword"
+              id="changePassword-newPassword"
+              [(ngModel)]="changePasswordNewPassword"
+              class="form-control"
+              placeholder="New Password"
+            />
+            <label for="changePassword-newPassword">New Password</label> -->
+          </div>
+    
+          <!-- Submit button -->
+          <button class="btn btn-primary mb-3">Process Claim</button>
+    
+          <!-- Success/Error Message -->
+          <h3 *ngIf="processClaimResult">{{ processClaimResult }}</h3>
+        </form>
+      </div>
+  </div>
+  
+  </div>
+  
+  </body>
+  
+  
