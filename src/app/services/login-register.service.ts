@@ -9,13 +9,19 @@ import { LoginRegister } from '../models/login-register';
 export class LoginRegisterService {
   url: string = `http://localhost:8083/`;
 
+  
+  
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedIn.asObservable();
+
+  isAgent: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isAgent$: Observable<boolean> = this.isAgent.asObservable();
 
   constructor(private httpClient: HttpClient) {}
 
   loginUser(user: LoginRegister): Observable<LoginRegister> {
     return this.httpClient.post<LoginRegister>(this.url + 'login', user);
+    
     //.pipe(
       //  tap(response => console.log(response)),
         //map(response => response.body)
