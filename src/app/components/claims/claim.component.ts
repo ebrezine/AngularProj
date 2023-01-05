@@ -17,43 +17,7 @@ export class ClaimComponent{
         private route: ActivatedRoute,
         private router: Router
     ){}
-    description = '';
-    amount = 0;
-    createResult: string = '';
-    approveResult: string = '';
-    url = "localhost:8083/claim";
- 
-    createClaim(){
-        if(!this.description && this.amount==0){
-            this.createResult = 'Please enter an amount and a description';
-            return;
-        }
-        else if(!this.description){
-            this.createResult = 'Please enter a description for your claim';
-        }
-        else if(this.amount == 0){
-            this.createResult = 'Please enter an amount for your claim';
-        }
-
-        let claim: Claim = new Claim(
-            this.description,
-            this.amount
-        );
-
-        this.claimService.createClaim(claim).subscribe({
-            next: (clm) => {
-                this.description = '';
-                this.amount = 0;
-
-            },
-            error: (err) =>{
-                this.createResult = err.error;
-                console.log(err);
-            },
-        });
-
-        //if !(user.isWorker), allow field for OPTIONl claim description, then generate
-    }
+    url = 'localhost:8083/claims';
     async displayTickets(){
         let response = await fetch(this.url);
         if(response.status===200){
@@ -61,7 +25,7 @@ export class ClaimComponent{
             this.populateTable(claims);
         }
     }
-    async populateTable(claims){
+    async populateTable(claims: any){
         const claimBody = document.getElementById("claimBody");
         if(claimBody != null){
             claimBody.innerHTML = "";
@@ -73,7 +37,6 @@ export class ClaimComponent{
                     row.appendChild(td);
                 }
                 let td = document.createElement("td");
-                td.innerHTML = 
                 claimBody.appendChild(row);
             }
         }

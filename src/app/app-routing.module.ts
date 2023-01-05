@@ -23,12 +23,6 @@ const routes: Routes = [
     path: 'userprofile',
     component: UserProfileComponent
   },
-<<<<<<< HEAD
-  //{
-  //  path:'claims',
-    //component: ClaimComponent
- // }
-=======
   {
     path: 'fileclaim',
     component: FileClaimComponent
@@ -41,7 +35,6 @@ const routes: Routes = [
     path: 'processclaim',
     component: ProcessClaimComponent
   }
->>>>>>> frontEndWork1
   // TODO - view claims route
   // TODO - approve/deny claims route
   // TODO - change patient/employee roles route

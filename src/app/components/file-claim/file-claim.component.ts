@@ -32,7 +32,7 @@ export class FileClaimComponent {
   }
 
 fileClaim() {
-  if (!this.amount || !this.description) {
+  if (!this.amount || this.amount == 0 || !this.description) {
     this.fileClaimResult = 'Please fill in all of the fields.';
     return;
   }
