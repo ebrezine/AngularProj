@@ -66,7 +66,9 @@ export class NavBarComponent implements OnInit, OnDestroy {
     
   }
 
-
+  fileclaim(){
+    this.router.navigate(['fileclaim']);
+  }
 
   loginRedirect() {
     setTimeout(()=>{

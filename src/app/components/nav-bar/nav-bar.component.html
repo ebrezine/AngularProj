@@ -10,7 +10,11 @@
   <div class="container-fluid">
     <div class="p-2">
       <!-- TODO - add routerLinkActive & routerLink -->
-      <a class="btn"> View Claims </a>
+      <a class="btn" routerLinkActive="active" 
+      routerLink="/viewclaims"
+      *ngIf="loggedIn"> 
+      View Claims 
+      </a>
       <!-- TODO - add routerLinkActive & routerLink -->
       <a class="btn"> Approve/Deny Claims </a>
       <!-- TODO - add routerLinkActive & routerLink -->
