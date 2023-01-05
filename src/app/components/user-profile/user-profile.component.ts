@@ -24,6 +24,9 @@ export class UserProfileComponent implements OnInit {
 
   changePasswordResult: string = '';
 
+  changeRoleResult: string = '';
+  pin: number = 0;
+
   name: string = '';
   activeClass: string = 'tab-pane fade show active';
   inactiveClass: string = 'tab-pane fade';
@@ -32,6 +35,28 @@ export class UserProfileComponent implements OnInit {
     this.route.url.subscribe((params) => {
       this.name = params[0].path;
     });
+  }
+
+  changeRole(){
+
+    this.userProfileService.changeRole(this.pin).subscribe({
+  
+      next: (numCh) => {
+  
+        this.changeRoleResult = 'Role changed successfully!';
+  
+      },
+  
+      error: (err) => {
+  
+        this.changeRoleResult = err.error;
+  
+        console.log(err);
+  
+      }
+  
+    })
+  
   }
 
 changePassword() {

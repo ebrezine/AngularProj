@@ -16,4 +16,12 @@ export class UserProfileService {
     return this.httpClient.post<Object>(this.url + 'userprofile/resetpassword', passwords);  
   }
 
+  changeRole(pin: number): Observable<Object> {
+
+    return this.httpClient.post<Object>(this.url+'change', pin);
+
+  }
+
 }
+
+
