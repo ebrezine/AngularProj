@@ -26,6 +26,9 @@ export class UserProfileComponent implements OnInit {
   changeRoleResult: string = '';
   pin: number = 0;
 
+  changeRoleResult: string = '';
+  pin: number = 0;
+
   name: string = '';
   activeClass: string = 'tab-pane fade show active';
   inactiveClass: string = 'tab-pane fade';
@@ -35,6 +38,7 @@ export class UserProfileComponent implements OnInit {
       this.name = params[0].path;
     });
   }
+<<<<<<< HEAD
 changeRole(){
   this.userProfileService.changeRole(this.pin).subscribe({
     next: (numCh) => {
@@ -51,6 +55,31 @@ changeRole(){
     }
   })
 }
+=======
+
+  changeRole(){
+
+    this.userProfileService.changeRole(this.pin).subscribe({
+  
+      next: (numCh) => {
+  
+        this.changeRoleResult = 'Role changed successfully!';
+  
+      },
+  
+      error: (err) => {
+  
+        this.changeRoleResult = err.error;
+  
+        console.log(err);
+  
+      }
+  
+    })
+  
+  }
+
+>>>>>>> frontEndWork1
 changePassword() {
   if (!this.changePasswordUsername || !this.changePasswordPassword || !this.changePasswordNewPassword) {
     this.changePasswordResult = 'Please fill in all of the fields.';
