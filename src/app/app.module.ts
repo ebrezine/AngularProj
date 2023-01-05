@@ -10,9 +10,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomInterceptor } from './intereceptors/custom.interceptor';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { DarkModeTogglePipe } from './pipes/dark-mode-toggle.pipe';
+import { FileClaimComponent } from './components/file-claim/file-claim.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent, LoginRegisterComponent, UserProfileComponent, DarkModeTogglePipe],
+  declarations: [AppComponent, NavBarComponent, LoginRegisterComponent, UserProfileComponent, DarkModeTogglePipe, FileClaimComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true },
