@@ -69,6 +69,7 @@ export class LoginRegisterComponent implements OnInit {
         this.loginUsername = '';
         this.loginPassword = '';
         this.loginRegisterService.isLoggedIn.next(true);
+        
         this.loginResult = 'You successfully logged in';
         console.log(usr);
         console.log(usr.username);
@@ -76,11 +77,17 @@ export class LoginRegisterComponent implements OnInit {
         console.log(String(usr.worker));
         sessionStorage.setItem("loggedInUser", usr.username);
         sessionStorage.setItem("isWorker", String(usr.worker));
-
+        
+        if(sessionStorage.getItem("isWorker")=="true"){
+          this.loginRegisterService.isAgent.next(true);
+        }else{
+          this.loginRegisterService.isAgent.next(false);
+        }
+        
         console.log(sessionStorage.getItem("loggedInUser"));
         console.log(sessionStorage.getItem("isWorker"));
         console.log("session storage length: "+sessionStorage.length +" object parameters have been stored in the session.");
-
+        
         setTimeout(()=>{
           this.loginResult = 'redirecting...';
           this.claimsRedirect();

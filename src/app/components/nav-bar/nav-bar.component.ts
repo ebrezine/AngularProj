@@ -19,15 +19,15 @@ export class NavBarComponent implements OnInit, OnDestroy {
   ) {}
 
   loggedIn: boolean = false;
+  Agent: boolean = false;
   subscription: Subscription = new Subscription();
   logoutResult: string = '';
-
- 
   
 
   // TODO - destroy session
   logout() {
     this.loginService.isLoggedIn.next(false);
+    this.loginService.isAgent.next(false);
     this.loginService.logoutUser().subscribe({
       next: () => {
         sessionStorage.clear()
@@ -51,6 +51,10 @@ export class NavBarComponent implements OnInit, OnDestroy {
     this.subscription = this.loginService.isLoggedIn$.subscribe(
       (isLoggedIn) => (this.loggedIn = isLoggedIn)
     );
+
+    this.subscription = this.loginService.isAgent$.subscribe(
+      (isAgent) => (this.Agent = isAgent)
+    )
   }
 
   ngOnDestroy() {

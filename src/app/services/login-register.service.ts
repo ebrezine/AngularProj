@@ -12,6 +12,9 @@ export class LoginRegisterService {
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedIn.asObservable();
 
+  isAgent: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isAgent$: Observable<boolean> = this.isAgent.asObservable();
+
   constructor(private httpClient: HttpClient) {}
 
   loginUser(user: LoginRegister): Observable<LoginRegister> {
