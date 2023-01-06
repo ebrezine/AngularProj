@@ -21,7 +21,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
   loggedIn: boolean = false;
   Agent: boolean = false;
   subscription: Subscription = new Subscription();
-  logoutResult = '';
+  
   
 
   // TODO - destroy session
@@ -32,11 +32,11 @@ export class NavBarComponent implements OnInit, OnDestroy {
       next: () => {
         sessionStorage.clear()
         console.log("session storage empty?: "+String(sessionStorage.length == 0)+", the session and session object parameters have been cleared.");
-        this.logoutResult = "Log out successful!";
+        this.loginService.logoutResult = "Log out successful!";
         this.loginService.userEmail = '';
 
         setTimeout(()=>{
-          this.logoutResult = "Log out successful!";
+          this.loginService.logoutResult = "Log out successful!";
         }, 1750);
         
         this.loginRedirect();
@@ -77,7 +77,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
 
   loginRedirect() {
     setTimeout(()=>{
-      this.logoutResult = '';
+      this.loginService.logoutResult = '';
       this.router.navigate(['login']);
     }, 1750);
   }
