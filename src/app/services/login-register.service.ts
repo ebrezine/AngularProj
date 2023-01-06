@@ -9,7 +9,7 @@ import { LoginRegister } from '../models/login-register';
 export class LoginRegisterService {
   url: string = `http://localhost:8083/`;
 
-  
+  userEmail = '';
   
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedIn.asObservable();

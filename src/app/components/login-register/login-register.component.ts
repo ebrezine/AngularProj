@@ -126,7 +126,7 @@ export class LoginRegisterComponent implements OnInit {
         this.loginUsername = '';
         this.loginPassword = '';
         this.loginRegisterService.isLoggedIn.next(true);
-
+        this.loginRegisterService.userEmail = sessionStorage.getItem("loggedInUser")+'';
         
         
         this.loginResult = 'You successfully logged in';
