@@ -51,6 +51,8 @@ export class LoginRegisterComponent implements OnInit {
       let element3 = document.getElementById("divMain3");
       let element4 = document.getElementById("divMain4");
       let element5 = document.getElementById("divMain5");
+      let element6 = document.getElementById("divMain6");
+      
       //this.darkModeService.isDarkMode = false;
   
       for(let single in element){
@@ -68,6 +70,9 @@ export class LoginRegisterComponent implements OnInit {
       for(let single in element5){
         element5.className = "light-mode";
       }
+      for(let single in element6){
+        element6.className = "light-mode";
+      }
       console.log(this.darkModeService.isDarkMode);
       
       
@@ -78,7 +83,7 @@ export class LoginRegisterComponent implements OnInit {
       let element3 = document.getElementById("divMain3");
       let element4 = document.getElementById("divMain4");
       let element5 = document.getElementById("divMain5");
-      
+      let element6 = document.getElementById("divMain6");
       //this.darkModeService.isDarkMode = true;
       
       for(let single in element){
@@ -95,6 +100,9 @@ export class LoginRegisterComponent implements OnInit {
       }
       for(let single in element5){
         element5.className = "dark-mode";
+      }
+      for(let single in element6){
+        element6.className = "dark-mode";
       }
       
       console.log(this.darkModeService.isDarkMode);
@@ -206,7 +214,7 @@ export class LoginRegisterComponent implements OnInit {
 
   claimsRedirect() {
     setTimeout(()=>{
-      this.router.navigate(['userprofile']);
+      this.router.navigate(['viewclaim']);
     }, 1750);
   }
 

@@ -1,10 +1,10 @@
 export class viewClaim{
     constructor(
-        public id: number,
-        public stat: string,
+        public claim_id: number,
+        public status: string,
         public created_by: string,
         public description: string,
-        public isPending: boolean,
+        public pending: boolean,
         public amount: number
         ){}
 }
