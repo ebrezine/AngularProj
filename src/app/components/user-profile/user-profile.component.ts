@@ -133,33 +133,14 @@ changePassword() {
           this.changePasswordResult = 'pw changed successfully';
           
 
-          setTimeout(()=>{
-            this.changePasswordResult = 'redirecting...';
-            this.loginRedirect();
-            }, 1750);
+          // setTimeout(()=>{
+          //   this.changePasswordResult = 'redirecting...';
+          //   this.loginRedirect();
+          //   }, 1750);
 
-            this.loginService.isLoggedIn.next(false);
-    this.loginService.isAgent.next(false);
-    this.loginService.logoutUser().subscribe({
-      next: () => {
-        
-        sessionStorage.clear()
-        console.log("session storage empty?: "+String(sessionStorage.length == 0)+", the session and session object parameters have been cleared.");
-
-        this.loginService.userEmail = '';
-        this.loginService.logoutResult = "Log out successful!";
-
-        setTimeout(()=>{
-          this.loginService.logoutResult = "Log out successful!";
-        }, 1750);
-        
-        this.loginRedirect();
-      },
-      error: (err) => {
-        console.log('err', err);
-        
-      },
-    });
+            // this.loginService.isLoggedIn.next(false);
+            // this.loginService.isAgent.next(false);
+    
 
       },
       error: (err) => {
