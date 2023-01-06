@@ -21,7 +21,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
   loggedIn: boolean = false;
   Agent: boolean = false;
   subscription: Subscription = new Subscription();
-  logoutResult: string = '';
+  logoutResult = '';
   
 
   // TODO - destroy session

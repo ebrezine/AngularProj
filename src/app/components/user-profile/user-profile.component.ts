@@ -131,6 +131,7 @@ changePassword() {
           this.changePasswordPassword = '';
           this.changePasswordNewPassword = '';
           this.changePasswordResult = 'pw changed successfully';
+          
 
           setTimeout(()=>{
             this.changePasswordResult = 'redirecting...';
@@ -143,6 +144,8 @@ changePassword() {
       next: () => {
         sessionStorage.clear()
         console.log("session storage empty?: "+String(sessionStorage.length == 0)+", the session and session object parameters have been cleared.");
+
+        this.loginService.userEmail = '';
         // this.logoutResult = "Log out successful!";
 
         // setTimeout(()=>{

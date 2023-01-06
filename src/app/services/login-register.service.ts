@@ -11,6 +11,7 @@ export class LoginRegisterService {
 
   userEmail = '';
   
+  
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedIn.asObservable();
 
