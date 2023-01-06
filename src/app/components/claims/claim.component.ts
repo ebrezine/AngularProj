@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import {Claim} from 'src/app/models/claim';
 import { ClaimService } from 'src/app/services/claim.service';
 import { Observable } from 'rxjs';
+import { viewClaim } from 'src/app/models/view-claim';
 
 @Component({
 selector:'app-claim',
@@ -19,16 +20,24 @@ export class ClaimComponent implements OnInit{
         private router: Router
     ){}
     url = 'localhost:8083/claims';
-    items: any[] = [];
+    claims: viewClaim[]=[]
     getItems(): Observable<any[]>{
         return this.httpClient.get<any[]>(this.url);
     }
     ngOnInit(): void {
-        this.getItems().subscribe((res: any[]) => {
-            this.items = res;
-        })
+        this.claimService.getClaims().subscribe({
+            next:(data:viewClaim[]) => {this.claims=data;},
+            error:(error)=>{
+                console.log("request failed: "+error);
+            }
+        });
     }
     
+    visibility = false;
+
+    switchVisible(){
+        this.visibility = !this.visibility;
+    }
     
 
 }

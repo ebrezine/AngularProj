@@ -17,20 +17,20 @@
     <table>
          <thead>
           <tr>
-            <th>ID</th>
-            <th>Amount</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Created By</th>
+            <th>ID  </th>
+            <th>Amount  </th>
+            <th>Description  </th>
+            <th>Status  </th>
+            <th>Created By  </th>
           </tr>
          </thead>
          <tbody>
-          <tr *ngFor="let item of items">
-            <th>{{item.id}}</th>
-            <th>{{item.amount}}</th>
-            <th>{{item.description}}</th>
-            <th>{{item.status}}</th>
-            <th>{{item.created_by}}</th>
+          <tr *ngFor="let item of claims">
+            <td>{{  item.id  }}</td>
+            <td>{{  item.amount  }}</td>
+            <td>{{  item.description  }}</td>
+            <td>{{  item.stat  }}</td>
+            <td>{{  item.created_by  }}</td>
           </tr>
          </tbody>       
     </table>
