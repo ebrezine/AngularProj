@@ -25,6 +25,11 @@
       <a
         class="btn"
         style="color:blue"
+        [(ngModel)]="this.loginService.userEmail"
+        >{{ this.loginService.userEmail }}</a>
+      <a
+        class="btn"
+        style="color:blue"
         *ngIf="logoutResult"
         >{{ logoutResult }}</a>
       <a

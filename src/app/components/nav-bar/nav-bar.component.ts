@@ -12,7 +12,7 @@ import { DarkModeService } from 'src/app/services/dark-mode.service';
 })
 export class NavBarComponent implements OnInit, OnDestroy {
   constructor(
-    private loginService: LoginRegisterService,
+    public loginService: LoginRegisterService,
     public darkModeService: DarkModeService,
     //private loginRegisterComponent: LoginRegisterComponent,
     private router: Router
@@ -33,6 +33,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
         sessionStorage.clear()
         console.log("session storage empty?: "+String(sessionStorage.length == 0)+", the session and session object parameters have been cleared.");
         this.logoutResult = "Log out successful!";
+        this.loginService.userEmail = '';
 
         setTimeout(()=>{
           this.logoutResult = "Log out successful!";
