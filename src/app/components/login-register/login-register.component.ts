@@ -205,7 +205,7 @@ export class LoginRegisterComponent implements OnInit {
        
       },
       error: (err) => {
-        this.registerResult = 'There was an error registering';
+        this.registerResult = err.error.substring(20);
         console.log(err);
       },
     });

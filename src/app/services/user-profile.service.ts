@@ -17,7 +17,7 @@ export class UserProfileService {
   }
 
   changeRole(pin: number): Observable<Object> {
-    return this.httpClient.post<Object>(this.url+'/change', pin);
+    return this.httpClient.post<Object>(this.url+'change', pin);
   }
 
 }
