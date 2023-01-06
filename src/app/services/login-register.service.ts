@@ -10,6 +10,8 @@ export class LoginRegisterService {
   url: string = `http://localhost:8083/`;
 
   userEmail = '';
+  logoutResult = '';
+  
   
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedIn.asObservable();

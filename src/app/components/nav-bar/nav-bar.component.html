@@ -24,14 +24,14 @@
     <div class="ms-auto p-2">
       <a
         class="btn"
-        style="color:blue"
-        [(ngModel)]="this.loginService.userEmail"
+        style="color:dodgerblue"
+        *ngIf="this.loginService.userEmail"
         >{{ this.loginService.userEmail }}</a>
       <a
         class="btn"
         style="color:blue"
-        *ngIf="logoutResult"
-        >{{ logoutResult }}</a>
+        *ngIf="this.loginService.logoutResult"
+        >{{ this.loginService.logoutResult }}</a>
       <a
         class="btn"
         routerLinkActive="active"
