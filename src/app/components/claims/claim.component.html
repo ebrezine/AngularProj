@@ -14,24 +14,14 @@
           >
         </li>
     </ul>
-    <table>
-         <thead>
-          <tr>
-            <th>ID  </th>
-            <th>Amount  </th>
-            <th>Description  </th>
-            <th>Status  </th>
-            <th>Created By  </th>
-          </tr>
-         </thead>
-         <tbody>
-          <tr *ngFor="let item of claims">
-            <td>{{  item.id  }}</td>
-            <td>{{  item.amount  }}</td>
-            <td>{{  item.description  }}</td>
-            <td>{{  item.stat  }}</td>
-            <td>{{  item.created_by  }}</td>
-          </tr>
-         </tbody>       
-    </table>
+    <div class="grid-container">
+      <div *ngFor="let item of claims">
+        <h2>Claim #{{item.id}}</h2>
+        <p>Status: {{item.stat}}</p>
+        <p>Description: {{item.description}}</p>
+        <p>Amount: {{item.amount}}</p>
+      </div>  
+    </div>
+    
+    
 </body>
