@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import {Claim} from 'src/app/models/claim';
 import { ClaimService } from 'src/app/services/claim.service';
 import { Observable } from 'rxjs';
 import { viewClaim } from 'src/app/models/view-claim';
@@ -26,7 +25,10 @@ export class ClaimComponent implements OnInit{
     }
     ngOnInit(): void {
         this.claimService.getClaims().subscribe({
-            next:(data:viewClaim[]) => {this.claims=data;},
+            next:(data:viewClaim[]) => {this.claims=data;
+            for(let item in this.claims){
+                console.log(item);
+            }},
             error:(error)=>{
                 console.log("request failed: "+error);
             }
