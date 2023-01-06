@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login-register.component.css'],
 })
 export class LoginRegisterComponent implements OnInit {
-  //clickEventsubscription:Subscription;
+  
   
   
   constructor(
@@ -21,9 +21,7 @@ export class LoginRegisterComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    // this.clickEventsubscription=this.darkModeService.getClickEvent().subscribe(()=>{
-    //   this.darkModeToggle();
-    // })
+   
   }
 
   loginUsername = '';
@@ -53,7 +51,7 @@ export class LoginRegisterComponent implements OnInit {
       let element5 = document.getElementById("divMain5");
       let element6 = document.getElementById("divMain6");
       
-      //this.darkModeService.isDarkMode = false;
+      
   
       for(let single in element){
         element.className = "light-mode";
@@ -84,7 +82,7 @@ export class LoginRegisterComponent implements OnInit {
       let element4 = document.getElementById("divMain4");
       let element5 = document.getElementById("divMain5");
       let element6 = document.getElementById("divMain6");
-      //this.darkModeService.isDarkMode = true;
+      
       
       for(let single in element){
         element.className = "dark-mode";
@@ -195,7 +193,7 @@ export class LoginRegisterComponent implements OnInit {
         this.registerUsername = '';
         this.registerPassword = '';
         this.registerIsWorker = false;
-        //this.loginRegisterService.isLoggedIn.next(true);
+        
         this.registerResult = 'You successfully registered';
 
         setTimeout(()=>{

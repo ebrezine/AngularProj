@@ -14,7 +14,6 @@ export class NavBarComponent implements OnInit, OnDestroy {
   constructor(
     public loginService: LoginRegisterService,
     public darkModeService: DarkModeService,
-    //private loginRegisterComponent: LoginRegisterComponent,
     private router: Router
   ) {}
 
@@ -24,7 +23,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
   
   
 
-  // TODO - destroy session
+  
   logout() {
     this.loginService.isLoggedIn.next(false);
     this.loginService.isAgent.next(false);
@@ -64,10 +63,7 @@ export class NavBarComponent implements OnInit, OnDestroy {
   
 
   darkModeToggle() {
-    this.darkModeService.darkModeToggle();
-  
-    //this.darkModeService.sendClickEvent();
-    
+    this.darkModeService.darkModeToggle(); 
     
   }
 

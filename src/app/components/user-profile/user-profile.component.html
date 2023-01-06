@@ -21,7 +21,7 @@
 </ul>
 
 <div class="tab-content">
-    <!-- Login Content -->
+    
     <div
       [ngClass]="name == 'userprofile' ? activeClass : inactiveClass"
       id="pills-userprofile"
@@ -29,20 +29,7 @@
       aria-labelledby="tab-userprofile"
     >
       <form (ngSubmit)="changePassword()">
-        <!-- Email input -->
-        <!-- <div class="form-floating mb-3">
-          <input
-            type="text"
-            name="username"
-            id="changePassword-username"
-            [(ngModel)]="changePasswordUsername"
-            class="form-control"
-            placeholder="Username"
-          />
-          <label for="changePassword-username">Username</label>
-        </div> -->
-  
-        <!-- Password input -->
+        
         <div class="form-floating mb-3">
           <input
             type="password"
@@ -55,7 +42,7 @@
           <label for="changePassword-password">Current Password</label>
         </div>
 
-        <!-- New Password input -->
+        
         <div class="form-floating mb-3">
           <input
             type="password"

@@ -7,15 +7,7 @@ import { Observable, Subject, Subscription } from 'rxjs';
 export class DarkModeService {
 
   constructor() { }
-  //private subject = new Subject<any>();
-
-  // sendClickEvent() {
-  //   this.subject.next();
-  // }
-
-  // getClickEvent(): Observable<any>{
-  //   return this.subject.asObservable();
-  // }
+  
 
   isDarkMode:boolean = false;
 

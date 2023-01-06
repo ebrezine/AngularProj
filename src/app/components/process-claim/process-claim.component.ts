@@ -19,7 +19,7 @@ export class ProcessClaimComponent {
 
   ){}
 
-  //changePasswordUsername = sessionStorage.getItem("loggedInUser") + '';
+  
   id = 0;
   status = '';
     
@@ -43,7 +43,7 @@ export class ProcessClaimComponent {
       let element5 = document.getElementById("divMain5");
       let element6 = document.getElementById("divMain6");
       
-      //this.darkModeService.isDarkMode = false;
+      
   
       for(let single in element){
         element.className = "light-mode";
@@ -74,7 +74,7 @@ export class ProcessClaimComponent {
       let element4 = document.getElementById("divMain4");
       let element5 = document.getElementById("divMain5");
       let element6 = document.getElementById("divMain6");
-      //this.darkModeService.isDarkMode = true;
+      
       
       for(let single in element){
         element.className = "dark-mode";
@@ -111,9 +111,7 @@ processClaim() {
     this.status,
   );
 
-  //call your change password service now
-  // you probable need the username to be saved in session
-    //before your backend can run
+ 
 
     this.processClaimService.processClaim(proClaim).subscribe({
       next: (prCl) => {

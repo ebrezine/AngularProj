@@ -46,7 +46,7 @@ export class UserProfileComponent implements OnInit {
       let element5 = document.getElementById("divMain5");
       let element6 = document.getElementById("divMain6");
       
-      //this.darkModeService.isDarkMode = false;
+      
   
       for(let single in element){
         element.className = "light-mode";
@@ -77,7 +77,7 @@ export class UserProfileComponent implements OnInit {
       let element4 = document.getElementById("divMain4");
       let element5 = document.getElementById("divMain5");
       let element6 = document.getElementById("divMain6");
-      //this.darkModeService.isDarkMode = true;
+      
       
       for(let single in element){
         element.className = "dark-mode";
@@ -130,9 +130,7 @@ changePassword() {
     this.changePasswordNewPassword
   );
 
-  //call your change password service now
-  // you probable need the username to be saved in session
-    //before your backend can run
+  
 
     this.userProfileService.changePassword(passwords).subscribe({
       next: (pwCh) => {
@@ -141,13 +139,7 @@ changePassword() {
           this.changePasswordResult = 'pw changed successfully';
           
 
-          // setTimeout(()=>{
-          //   this.changePasswordResult = 'redirecting...';
-          //   this.loginRedirect();
-          //   }, 1750);
 
-            // this.loginService.isLoggedIn.next(false);
-            // this.loginService.isAgent.next(false);
     
 
       },

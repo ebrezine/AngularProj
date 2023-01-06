@@ -24,10 +24,7 @@ export class LoginRegisterService {
   loginUser(user: LoginRegister): Observable<LoginRegister> {
     return this.httpClient.post<LoginRegister>(this.url + 'login', user);
     
-    //.pipe(
-      //  tap(response => console.log(response)),
-        //map(response => response.body)
-    //);
+ 
   
   }
 

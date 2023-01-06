@@ -20,7 +20,7 @@
   </ul>
   
   <div class="tab-content">
-      <!-- Login Content -->
+      
       <div
         [ngClass]="name == 'processclaim' ? activeClass : inactiveClass"
         id="pills-processclaim"
@@ -28,20 +28,7 @@
         aria-labelledby="tab-processclaim"
       >
         <form (ngSubmit)="processClaim()">
-          <!-- Email input -->
-          <!-- <div class="form-floating mb-3">
-            <input
-              type="text"
-              name="username"
-              id="changePassword-username"
-              [(ngModel)]="changePasswordUsername"
-              class="form-control"
-              placeholder="Username"
-            />
-            <label for="changePassword-username">Username</label>
-          </div> -->
-    
-          <!-- Password input -->
+          
           <div class="form-floating mb-3">
             <input
               type="number"
@@ -55,7 +42,7 @@
             <label for="processClaim-claim_id">Claim ID Number:</label>
           </div>
   
-          <!-- New Password input -->
+          
           <div class="form-floating mb-3">
             
             <h5 class="Small">Status</h5><select name="degree" id="degree" [(ngModel)]="status">
@@ -63,20 +50,11 @@
 
                 <option>Approved</option>
                 <option>Denied</option>
-        <!--<option>B.com Computers</option>
-        <option>B.A</option>-->
+        
     
             </select>
             
-            <!-- <input
-              type="password"
-              name="newPassword"
-              id="changePassword-newPassword"
-              [(ngModel)]="changePasswordNewPassword"
-              class="form-control"
-              placeholder="New Password"
-            />
-            <label for="changePassword-newPassword">New Password</label> -->
+            
           </div>
     
           <!-- Submit button -->

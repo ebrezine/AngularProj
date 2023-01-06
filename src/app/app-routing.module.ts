@@ -6,7 +6,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 import { ProcessClaimComponent } from './components/process-claim/process-claim.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
-//>>>>>>> frontEndWork1
+
 const routes: Routes = [
   {
     path: 'login',
@@ -32,9 +32,7 @@ const routes: Routes = [
     path: 'processclaim',
     component: ProcessClaimComponent
   }
-  // TODO - view claims route
-  // TODO - approve/deny claims route
-  // TODO - change patient/employee roles route
+
 ];
 
 @NgModule({
