@@ -26,6 +26,8 @@ export class DarkModeService {
     let element = document.getElementById("divMain");
     let element2 = document.getElementById("divMain2");
     let element3 = document.getElementById("divMain3");
+    let element4 = document.getElementById("divMain4");
+    let element5 = document.getElementById("divMain5");
     this.isDarkMode = false;
 
     for(let single in element){
@@ -37,6 +39,12 @@ export class DarkModeService {
     for(let single in element3){
       element3.className = "light-mode";
     }
+    for(let single in element4){
+      element4.className = "light-mode";
+    }
+    for(let single in element5){
+      element5.className = "light-mode";
+    }
     console.log(this.isDarkMode);
     
     
@@ -45,6 +53,8 @@ export class DarkModeService {
     let element = document.getElementById("divMain");
     let element2 = document.getElementById("divMain2");
     let element3 = document.getElementById("divMain3");
+    let element4 = document.getElementById("divMain4");
+    let element5 = document.getElementById("divMain5");
     
     this.isDarkMode = true;
     
@@ -56,6 +66,12 @@ export class DarkModeService {
     }
     for(let single in element3){
       element3.className = "dark-mode";
+    }
+    for(let single in element4){
+      element4.className = "dark-mode";
+    }
+    for(let single in element5){
+      element5.className = "dark-mode";
     }
     
     console.log(this.isDarkMode);
